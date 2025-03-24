@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tool 1 - JSON Viewer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div hx-get="partials/navbar.html" hx-trigger="load"></div>
+
+    <!-- Secondary toolbar inside tool1.html -->
+    <div class="sub-navbar bg-light border-bottom py-2 mb-3">
+      <div class="container-fluid d-flex flex-wrap align-items-center">
+          <button id="paste-btn" class="btn btn-sm btn-primary me-2">Paste</button>
+          <button id="copy-btn" class="btn btn-sm btn-secondary me-2">Copy</button>
+          <button id="format-btn" class="btn btn-sm btn-success me-2">Format</button>
+          <button id="minify-btn" class="btn btn-sm btn-warning me-2">Minify</button>
+          <button id="clear-btn" class="btn btn-sm btn-danger me-2">Clear</button>
+          <input type="file" id="file-input" class="form-control form-control-sm me-2" style="width:auto;">
+          <input type="text" id="url-input" class="form-control form-control-sm me-2" placeholder="Load JSON from URL">
+          <button id="load-url-btn" class="btn btn-sm btn-info">Load URL</button>
+          <input type="text" id="search-input" class="form-control form-control-sm ms-auto" placeholder="Search">
+      </div>
+    </div>
+
+    <!-- JSON Viewer + Sibling Inspector -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- JSON Tree -->
+            <div class="col-md-6" id="json-tree"></div>
+
+            <!-- Sibling Table -->
+            <div class="col-md-6">
+                <div id="sibling-table" class="table-responsive"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div hx-get="partials/footer.html" hx-trigger="load"></div>
+    <div hx-get="partials/scripts.html" hx-trigger="load"></div>
+    <script src="assets/js/tool1.js"></script>
+</body>
+
+</html>

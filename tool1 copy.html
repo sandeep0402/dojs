@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tool 1 - JSON Viewer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/tool1.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+</head>
+<body>
+  <div hx-get="partials/navbar.html" hx-trigger="load"></div>
+
+  <div class="container mt-4">
+    <h1>JSON Viewer Tool</h1>
+
+    <!-- Controls -->
+    <div class="mb-3 d-flex flex-wrap gap-2">
+      <button class="btn btn-primary" id="paste-btn">Paste</button>
+      <button class="btn btn-success" id="copy-btn">Copy</button>
+      <button class="btn btn-info" id="format-btn">Format</button>
+      <button class="btn btn-warning" id="minify-btn">Remove Whitespace</button>
+      <button class="btn btn-danger" id="clear-btn">Clear</button>
+      <input type="file" id="file-input" accept=".json" class="form-control-file" />
+      <input type="text" id="url-input" class="form-control" placeholder="Load JSON from URL" />
+      <button class="btn btn-secondary" id="load-url-btn">Load URL</button>
+    </div>
+
+    <!-- Text Area -->
+    <textarea id="json-input" class="form-control mb-3" rows="10" placeholder="Paste JSON here..."></textarea>
+
+    <!-- Search -->
+    <div class="mb-3">
+      <input type="text" id="search-input" class="form-control" placeholder="Search JSON..." />
+    </div>
+
+    <!-- Tree Viewer -->
+    <div id="json-display" class="json-container"></div>
+  </div>
+
+  <div hx-get="partials/footer.html" hx-trigger="load"></div>
+  <div hx-get="partials/scripts.html" hx-trigger="load"></div>
+  <script src="assets/js/tool1.js"></script>
+</body>
+</html>
